@@ -1,0 +1,12 @@
+services:
+  - docker
+
+language: node_js
+
+node_js:
+  - 10
+
+script:
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+- docker build --pull -t ${DOCKER_USERNAME}/bcfm:latest --no-cache .
+- docker push ${DOCKER_USERNAME}/bcfm:latest
