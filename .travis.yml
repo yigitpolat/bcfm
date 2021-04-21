@@ -1,19 +1,12 @@
 services:
-  - docker
-
+- docker
 language: node_js
-
 node_js:
-  - 10
-
+- 10
 addons:
   sonarcloud:
-    organization: "yp_organization"
+    organization: yp_organization
     token:
-      secure: ${SONAR_TOKEN}
-
+      secure: "TysoR1QgVubANnnCOlE2iu5mtJ+uXh8OwO949XRy92SrL9jA2lTV23emEpSlT27a/zaTXooum9AfzhNfN1tighhwLk08iMpjAijT/Xq+FD92C5dcXZ3g4yVEzqPEyBpvO8F2F9OwyELcF3tzQg3mQ5/kIRkon3UsUg/qFbRPSyPrDe8sKngauzTzBFRkky1Mo4FSTaESUpCoBi+2jGBzBwrWrsCGN6KB7lk3GZiSgN0htZH8CqLWHt9cETiLNkpNa+o9EFD9nvQlzdrtc6E0IR3V/BwjTeZ1JCZLrznKGBSkqfbQQioXEUWcKZjx+Ub/mELl/xtX8CD4RZ6yU4cJpSZhpMBFoszTJgF/+3s/0VczKx28YztSOh6IyMOk0spWTRYl/PS1gEBzqufl0P9AdbBxERHk3b6L0rZgxK1noyHwKbFwv5hYDHNmURuQ78WatZUksiZQ6DM6NWLKxZ5sPmElIniuHcioNKuY8kgCa88unhhSel3hWDqwXBUCnU+ipX/FbPkiooMP7WFUXx96rx2vIAqgGCEU2kQnKH2SfAonTxJK1x2tA3ortbK/bsb9QhtD35mgnPmQSEpRS7Lj4W6Y5HTRmQtffJSaiyIk2VWW0l8fv/XdwNfahRAjrJc7qDHtR5pcg/hbVphR+Q0PigPtCga1Z2kbHIps3yxR7ug="
 script:
 - sonar-scanner
-# - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
-# - docker build --pull -t ${DOCKER_USERNAME}/bcfm:latest --no-cache .
-# - docker push ${DOCKER_USERNAME}/bcfm:latest
