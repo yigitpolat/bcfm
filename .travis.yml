@@ -10,3 +10,6 @@ addons:
       secure: "wskrxsSK9MbQ23q3OLVrSFUDwpVanevTUSOatNUcxBOK71spQB9XZ7/GYhG9f9NX0EB8UPrxB1JsWE9QjH0tAqlpixZxYa6pQwH1WN2a6P8LHHs3VUc0YCd+2xofi0A2I08FDZq7nDoiPQtILv2XhVf+vh8RxpaH2lM4xBU+6qE+AgDZy7+Vj1vXqLaIjKlaAmWyI+lSmsD2+c/UMOm0TsEaCNheB4B5/Suhp+zl4FdfaKbdgdpL+Sa5VKUQ7fLVRuTosAxU25a1iIKYGoOaDbwGq6+v8OcsQzJFb3d1M9hHIi/OZwwEKw5udGvFc+2ZpuVk2A/JbpxzKBIZXuPf2GIo5GfRqfodIZluJudyJw/wFJWeMnsH8UInjqeosCCytWyUiDKvnL0crsICR21sVuIKmjpKJ46Z0UmSRHMfnTVRQ1Yo2n2pggL/sdDVncCkwRq4cMWGX2La9PBqsou/mnwnu6IuIV7H8EwrFoZlP3FgbYBI00n2pVLSGZioaXoPIR4E89y9fhOKGk8kRM30tygS0SRlSUe9BQSlth9y72v6gVQ4kelzL+QMac/+r49u21L+FhuI8HTf28xtGW+LJgTd2tn2zvNhtN3aOg5hVJ/m3SJIiKgxXx/BhmAe6C7nEb92OL4o2CQvqSn12DzjoeRvr1obDRYe2mueN6Vu7ro="
 script:
 - sonar-scanner
+- docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+- docker build --pull -t ${DOCKER_USERNAME}/bcfm:latest --no-cache .
+- docker push ${DOCKER_USERNAME}/bcfm:latest
